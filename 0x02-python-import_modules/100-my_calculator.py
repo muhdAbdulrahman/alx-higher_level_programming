@@ -1,19 +1,29 @@
 #!/usr/bin/python3
-
 if __name__ == "__main__":
-    """Handles the simple arithmetic operations."""
-    from calculator_1 import add, sub, mul, div
+    import calculator_1 as mod1
     import sys
 
-    if len(sys.argv) - 1 != 3:
+    length = len(sys.argv)
+    if length != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
 
-    ops = {"+": add, "-": sub, "*": mul, "/": div}
-    if sys.argv[2] not in list(ops.keys()):
-        print("Unknown operator. available operators: +, -, * and /")
+    if sys.argv[2] not in "+-*/":
+        print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
 
     a = int(sys.argv[1])
     b = int(sys.argv[3])
-    print("{} {} {} = {}".format(a, sys.argv[2], b, ops[sys.argv[2]](a, b)))
+    op = sys.argv[2]
+
+    if op == '+':
+        print("{} {} {} = {}".format(a, op, b, mod1.add(a, b)))
+
+    elif op == '-':
+        print("{} {} {} = {}".format(a, op, b, mod1.sub(a, b)))
+
+    elif op == '*':
+        print("{} {} {} = {}".format(a, op, b, mod1.mul(a, b)))
+
+    elif op == '/':
+        print("{} {} {} = {}".format(a, op, b, mod1.div(a, b)))
