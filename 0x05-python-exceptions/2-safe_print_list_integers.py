@@ -1,20 +1,21 @@
 #!/usr/bin/python3
+
 def safe_print_list_integers(my_list=[], x=0):
-    """Print the first x elements of a list and only integers
+    """Print the first x elements of a list which are integers.
 
     Args:
-        my_list (list): List to print from
-        x (int): the number of elements to print from my_list
+        my_list (list): The list to print elements from.
+        x (int): The number of elements of my_list to be print.
 
     Returns:
-        number of elements printed
+        The amount of elements printed.
     """
-    i = 0
-    for j in range(x):
+    ret = 0
+    for i in range(0, x):
         try:
-            print("{:d}".format(my_list[j]), end="")
-            i += 1
-        except(ValueError, TypeError):
+            print("{:d}".format(my_list[i]), end="")
+            ret += 1
+        except (ValueError, TypeError):
             continue
-    print()
-    return i
+    print("")
+    return (ret)
